@@ -1,4 +1,4 @@
-# week-six-weather-dashboard-challenge This challeng involves third-party APIs and will be tasked to access data and functionallity by making requests with specific parameters to a URL.This will run in the browser 
+# week-six-weather-dashboard-challenge This challenge involves third-party APIs and will be tasked to access data and functionallity by making requests with specific parameters to a URL.This will run in the browser 
 
 # Will be retrieving data from another application's API and using it in the context of their own. Will specifically be using the 5 Day Weather Forecast API.
 
