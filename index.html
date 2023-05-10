@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="/style.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,700;1,200&display=swap"
+      rel="stylesheet"
+    />
+</head>
+
+<body>
+  <header>
+    <h1>Weather Dashboard</h1>
+  </header>
+
+  <main>
+
+     <aside>
+     <div class="search-catalog">
+      <input type="text" id="location" placeholder="Search for a location">
+      <button id="search">Search Location</button>
+      <div id="error-message"></div>
+     </div>
+      <div class="recent-section" id="recent-location"></div>
+     </aside>
+  
+      
+     <section>
+         <div id="weather">
+          <div class="weather-icon">
+            <div class="weather-location" id="location-name">Enter a location</div>
+          
+           </div>
+           <div class="weather-info">
+            <div class="temperature">
+              <span>Temperature</span>
+              <span id="temp-value"></span>
+            
+            </div>
+              <div class="wind">
+                <span>Wind</span>
+                <span id="wind-value"></span>
+              </div>
+              
+              <div class="humidity">
+                <span>Humidity</span>
+                <span id="humid-value"></span>
+              </div>
+
+              <div class="uv-index">
+                <span>UV Index</span>
+                <span id="uv-value"></span>
+              </div>
+             </div>
+         </div>
+
+         <div id="forecast">
+          <h2>5-Day Forecast</h2>
+          <div id="forecast-days"></div>
+         </div>
+      </section>
+    </main>
+  
+</body>
+<script src="/script.js"></script>
+
+</html>
