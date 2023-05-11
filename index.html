@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
     <link
       href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,700;1,200&display=swap"
       rel="stylesheet"
@@ -21,10 +21,12 @@
   <main>
 
      <aside>
+      <section class="card">
      <div class="search-catalog">
-      <input type="text" id="location" placeholder="Search for a location">
+      <input type="text" id="location" placeholder="Look for location">
       <button id="search">Search Location</button>
       <div id="error-message"></div>
+     </section>
      </div>
       <div class="recent-section" id="recent-location"></div>
      </aside>
@@ -34,7 +36,7 @@
          <div id="weather">
           <div class="weather-icon">
             <div class="weather-location" id="location-name">Enter a location</div>
-          
+      
            </div>
            <div class="weather-info">
             <div class="temperature">
@@ -67,6 +69,6 @@
     </main>
   
 </body>
-<script src="/script.js"></script>
+<script src="./script.js"></script>
 
 </html>
