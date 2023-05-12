@@ -51,6 +51,15 @@ body, h1, h2, div, p, input, button {
     font-size: 16px;
   }
 
+.temperature span,
+.wind span,
+.humidity span,
+.uv-index span {
+  font-size: 18px;
+  font-weight: 700;
+  margin-left: 40px;
+}
+
   
   
   
@@ -65,6 +74,12 @@ body, h1, h2, div, p, input, button {
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
+  }
+
+  #forecast {
+    margin-bottom: 10px;
+
+
   }
   
   #error-message {
