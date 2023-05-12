@@ -1,11 +1,11 @@
 const WEATHER_API_BASE_URL = 'https://api.openweathermap.org';
 const WEATHER_API_KEY = 'f23ee9deb4e1a7450f3157c44ed020e1';
 const MAX_DAILY_FORECAST = 5;
-let cityName=""
+let cityName = ""
 const searchBtn = document.querySelector('#search')
 const input = document.querySelector('#location')
 const weather = document.querySelector('#weather')
-const forecastEL= document.querySelector('#forecast-days')
+const forecastEl= document.querySelector('#forecast-days')
 // create an array of searched locations
 
 const lookupLocation = (search) => {
@@ -22,7 +22,7 @@ const lookupLocation = (search) => {
             //const location = data[0];
             var lat = data[0].lat;
             var lon = data[0].lon;
-            cityName=data[1].name
+            cityName = data[1].name
 
             // Get the Weather for the cached location
             var apiUrl = `${WEATHER_API_BASE_URL}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=${WEATHER_API_KEY}`;
@@ -34,14 +34,24 @@ const lookupLocation = (search) => {
                     console.log(data);
 
                     // Display the Current Weather
-                      
-                    displaycurrentWeather(data.current)
+                     displaycurrentWeather(data.current)
+
                     // Display the 5 Day Forecast
                     displayForecast(data.daily)
                 });
         });
 }
 
+// Prompts user to search location
+const setSearchError = (text) => {
+     const errorDisplay = document.getElementById('error-message');
+     errorDisplay.textContent = text;
+
+      setTimeout(setSearchError , 5000)
+
+}
+
+// Displays current weather within currrent day
 function displaycurrentWeather(data) {
 
      const card = document.createElement('div')
@@ -55,7 +65,7 @@ function displaycurrentWeather(data) {
 
      icon.setAttribute("src","https://openweathermap.org/img/w/" + data.weather[0].icon + ".png"
      )
-     temp.textContent = `Temperature: ${data.temp} celsius`
+     temp.textContent = `Temperature: ${data.temp} Fahrenheit`
      humidity.textContent = `Humidity: ${data.humidity} %`
      wind.textContent = `Wind Speed: ${data.wind_speed} kph`
      h2.textContent= cityName
@@ -66,8 +76,9 @@ card.append(h2, temp, humidity, wind)
 weather.append(card)
 }
 
+// This function here 
 function displayForecast(data){
-    for(var i =0; i< MAX_DAILY_FORECAST; i++){ 
+    for(var i = 0; i < MAX_DAILY_FORECAST; i++){ 
         
     const card = document.createElement('div')
     const h2 = document.createElement('h2')
@@ -78,22 +89,27 @@ function displayForecast(data){
     const span = document.createElement('span')
     const icon = document.createElement('img')
 
-    temp.textContent=`Temperature: ${data[i].temp.day} Celsius`
+    temp.textContent=`Temperature: ${data[i].temp.day} Fahrenheit`
     humidity.textContent = `Humidity: ${data[i].humidity} %`
     wind.textContent = `Wind Speed: ${data[i].wind_speed} kph`
     h2.textContent= new Date(data[i].dt*1000).toDateString()
-    icon.setAttribute("src","https://openweathermap.org/img/w/" + data[i].weather[0].icon + ".png"
-     )
+    icon.setAttribute("src","https://openweathermap.org/img/w/" + data[i].weather[0].icon + ".png")
+     
 
      span.append(icon)
      h2.append(span)
      card.append(h2, temp, humidity, wind)
-     forecastEL.append(card)
+     forecastEl.append(card)
     }
 }
  
 // Add an event handler for the search button
-searchBtn.addEventListener('click' , ()=>{
+searchBtn.addEventListener('click' , () => {
 const city = input.value
+if (city === '') {
+     setSearchError('Noteably ENTER a location ')
+    
+} else {
 lookupLocation(city)
+}
 })
