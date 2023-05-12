@@ -25,7 +25,7 @@ const lookupLocation = (search) => {
             cityName = data[1].name
 
             // Get the Weather for the cached location
-            var apiUrl = `${WEATHER_API_BASE_URL}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=${WEATHER_API_KEY}`;
+            var apiUrl = `${WEATHER_API_BASE_URL}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely,hourly&appid=${WEATHER_API_KEY}`;
             console.log(apiUrl);
             fetch(apiUrl)
                 .then(response => response.json())
@@ -33,10 +33,10 @@ const lookupLocation = (search) => {
 
                     console.log(data);
 
-                    // Display the Current Weather
+                    // Displays the Current Weather
                      displaycurrentWeather(data.current)
 
-                    // Display the 5 Day Forecast
+                    // Displays the 5 Day Forecast
                     displayForecast(data.daily)
                 });
         });
@@ -65,9 +65,10 @@ function displaycurrentWeather(data) {
 
      icon.setAttribute("src","https://openweathermap.org/img/w/" + data.weather[0].icon + ".png"
      )
-     temp.textContent = `Temperature: ${data.temp} Fahrenheit`
+     temp.textContent = `Temperature: ${data.temp} °Celsius`
      humidity.textContent = `Humidity: ${data.humidity} %`
      wind.textContent = `Wind Speed: ${data.wind_speed} kph`
+     
      h2.textContent= cityName
 
 span.append(icon)
@@ -78,6 +79,12 @@ weather.append(card)
 
 // This function here 
 function displayForecast(data){
+    
+    document.getElementById('forecast').style.display = 'block';
+    const forecastList = document.getElementById('forecast-days');
+    forecastList.innerHTML = ''
+    
+    
     for(var i = 0; i < MAX_DAILY_FORECAST; i++){ 
         
     const card = document.createElement('div')
@@ -89,7 +96,7 @@ function displayForecast(data){
     const span = document.createElement('span')
     const icon = document.createElement('img')
 
-    temp.textContent=`Temperature: ${data[i].temp.day} Fahrenheit`
+    temp.textContent=`Temperature: ${data[i].temp.day} °Celsius`
     humidity.textContent = `Humidity: ${data[i].humidity} %`
     wind.textContent = `Wind Speed: ${data[i].wind_speed} kph`
     h2.textContent= new Date(data[i].dt*1000).toDateString()
@@ -102,6 +109,9 @@ function displayForecast(data){
      forecastEl.append(card)
     }
 }
+
+
+
  
 // Add an event handler for the search button
 searchBtn.addEventListener('click' , () => {
