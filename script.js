@@ -63,13 +63,17 @@ function displaycurrentWeather(data) {
      const span = document.createElement('span')
      const icon = document.createElement('img')
 
+     // This allows to display different city when user searches for another
+     const weatherList = document.getElementById('weather');
+     weatherList.innerHTML = ''
+
      icon.setAttribute("src","https://openweathermap.org/img/w/" + data.weather[0].icon + ".png"
      )
      temp.textContent = `Temperature: ${data.temp} °Celsius`
      humidity.textContent = `Humidity: ${data.humidity} %`
      wind.textContent = `Wind Speed: ${data.wind_speed} kph`
      
-     h2.textContent= cityName
+     h2.textContent = cityName
 
 span.append(icon)
 h2.append(span) 
@@ -77,9 +81,10 @@ card.append(h2, temp, humidity, wind)
 weather.append(card)
 }
 
-// This function here 
-function displayForecast(data){
+// This function here helps to display the forecast within the next five days
+function displayForecast(data) {
     
+    // Sets 5 Day Forecast Data to different data when user looks for another city in the search bar
     document.getElementById('forecast').style.display = 'block';
     const forecastList = document.getElementById('forecast-days');
     forecastList.innerHTML = ''
@@ -87,6 +92,8 @@ function displayForecast(data){
     
     for(var i = 0; i < MAX_DAILY_FORECAST; i++){ 
         
+    // Gets value of temp,humidity and wind
+
     const card = document.createElement('div')
     const h2 = document.createElement('h2')
     const temp = document.createElement('p')
@@ -111,8 +118,6 @@ function displayForecast(data){
 }
 
 
-
- 
 // Add an event handler for the search button
 searchBtn.addEventListener('click' , () => {
 const city = input.value

@@ -29,10 +29,7 @@ body, h1, h2, div, p, input, button {
   }
 
   
-  h2 {
-    font-family: fantasy;
-   
-  }
+  
   
   main {
     display: flex;
@@ -106,6 +103,12 @@ margin-top: 30px;
     margin-top: 10px;
   }
   
+  @media screen and (max-width: 500px)  {
+    main 
+    body {
+      flex-direction: column;
+    }
+  }
   
   
  
