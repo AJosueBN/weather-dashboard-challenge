@@ -70,6 +70,7 @@ function displaycurrentWeather(data) {
      const wind = document.createElement('p')
      const span = document.createElement('span')
      const icon = document.createElement('img')
+     const uvIndex = document.createElement('p')
 
      // This allows to display different city when user searches for another
      const weatherList = document.getElementById('weather');
@@ -80,12 +81,13 @@ function displaycurrentWeather(data) {
      temp.textContent = `Temperature: ${data.temp} °Celsius`
      humidity.textContent = `Humidity: ${data.humidity} %`
      wind.textContent = `Wind Speed: ${data.wind_speed} kph`
+     uvIndex.textContent = `UV Index: ${data.uvi}`
      
      h2.textContent = cityName
 
 span.append(icon)
 h2.append(span) 
-card.append(h2, temp, humidity, wind)  
+card.append(h2, temp, humidity, wind, uvIndex)  
 weather.append(card)
 }
 
@@ -110,10 +112,16 @@ function displayForecast(data) {
     const wind = document.createElement('p')
     const span = document.createElement('span')
     const icon = document.createElement('img')
+    
+    
+
 
     temp.textContent=`Temperature: ${data[i].temp.day} °Celsius`
     humidity.textContent = `Humidity: ${data[i].humidity} %`
     wind.textContent = `Wind Speed: ${data[i].wind_speed} kph`
+   
+    
+
     h2.textContent= new Date(data[i].dt*1000).toDateString()
     icon.setAttribute("src","https://openweathermap.org/img/w/" + data[i].weather[0].icon + ".png")
      
