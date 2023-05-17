@@ -6,9 +6,17 @@ const searchBtn = document.querySelector('#search')
 const input = document.querySelector('#location')
 const weather = document.querySelector('#weather')
 const forecastEl= document.querySelector('#forecast-days')
+
+const searchedLocations = []
+
 // create an array of searched locations
 
 const lookupLocation = (search) => {
+
+   
+
+       
+
 
     // Lookup the location to get the Lat/Lon
     var apiUrl = `${WEATHER_API_BASE_URL}/geo/1.0/direct?q=${search}&limit=5&appid=${WEATHER_API_KEY}`;
@@ -128,3 +136,7 @@ if (city === '') {
 lookupLocation(city)
 }
 })
+
+
+
+
