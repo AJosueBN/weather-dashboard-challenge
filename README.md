@@ -8,3 +8,6 @@
 - Can be presented with the city name,date and an icon representation of the temperature,humidity and wind speed within the current day and the weather conditions within the next five days
 
 # Screenshot of deployed application
+
+
+![Screenshot 2023-05-17 160723](https://github.com/AJosueBN/week-6-weather-dashboard-challenge/assets/129113539/276d2fbe-1cf3-4c83-8681-56d7c17166cd)
