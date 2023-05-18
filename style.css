@@ -55,6 +55,11 @@ body, h1, h2, div, p, input, button {
     font-size: 16px;
   }
 
+#recent-location {
+
+  font-size: 25px;
+}
+
 .temperature span,
 .wind span,
 .humidity span,

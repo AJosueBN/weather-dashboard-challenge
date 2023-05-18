@@ -1,22 +1,68 @@
 const WEATHER_API_BASE_URL = 'https://api.openweathermap.org';
-const WEATHER_API_KEY = 'f23ee9deb4e1a7450f3157c44ed020e1';
+const WEATHER_API_KEY = '3770aa61038a0816864d556d797ecb9f';
 const MAX_DAILY_FORECAST = 5;
 let cityName = ""
 const searchBtn = document.querySelector('#search')
 const input = document.querySelector('#location')
 const weather = document.querySelector('#weather')
-const forecastEl= document.querySelector('#forecast-days')
+const forecastEL = document.querySelector('#forecast-days')
 
 const searchedLocations = []
 
 // create an array of searched locations
 
-const lookupLocation = (search) => {
 
-   
+// Start of local storage to save data input
+function loadRecentLocations() {
+      
+    const storedLocations = JSON.parse(localStorage.getItem('recentLocations'));
+
+    if (storedLocations != null) {
+    searchedLocations.push(...storedLocations);
+    }
+
+    for(let i = 0; i < searchedLocations.length; i++) {
+
+        var newLocation = document.createElement('div')
+        newLocation.classList.add('recent-location');
+        newLocation.textContent = searchedLocations[i];
+        newLocation.addEventListener('click' , onClickSearchedLocation);
+
+        document.getElementById('recent-location').appendChild(newLocation);
 
        
 
+
+    }
+
+}
+
+function onClickSearchedLocation(event) {
+
+    console.log('clicked')
+
+    const location = event.target.textContent;
+    lookupLocation(location);
+
+}
+
+function saveSearchedLocation(location) {
+
+    const index = searchedLocations.indexOf(location)
+
+    if(index === -1) {
+        searchedLocations.push(location);
+
+        localStorage.setItem('recentLocations', JSON.stringify(searchedLocations));
+
+    }
+}
+// End of local storage to store data input and display on page
+
+ 
+const lookupLocation = (search) => {
+
+    saveSearchedLocation(search);
 
     // Lookup the location to get the Lat/Lon
     var apiUrl = `${WEATHER_API_BASE_URL}/geo/1.0/direct?q=${search}&limit=5&appid=${WEATHER_API_KEY}`;
@@ -129,7 +175,7 @@ function displayForecast(data) {
      span.append(icon)
      h2.append(span)
      card.append(h2, temp, humidity, wind)
-     forecastEl.append(card)
+     forecastEL.append(card)
     }
 }
 
@@ -144,6 +190,8 @@ if (city === '') {
 lookupLocation(city)
 }
 })
+
+loadRecentLocations();
 
 
 
