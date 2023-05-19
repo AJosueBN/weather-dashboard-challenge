@@ -58,6 +58,10 @@ body, h1, h2, div, p, input, button {
 #recent-location {
 
   font-size: 25px;
+  display: grid;
+  background-color: #333;
+  color:#ccc ;
+  border-radius: 4px;
 }
 
 .temperature span,
@@ -89,6 +93,7 @@ margin-top: 30px;
     font-size: 16px;
     cursor: pointer;
   }
+
 
   #forecast {
     margin-top: 10px;
