@@ -11,8 +11,7 @@
 
 # Screenshot of deployed application
 
-
-![Screenshot 2023-05-17 160723](https://github.com/AJosueBN/week-6-weather-dashboard-challenge/assets/129113539/276d2fbe-1cf3-4c83-8681-56d7c17166cd)
+![Screenshot 2023-05-21 134820](https://github.com/AJosueBN/week-6-weather-dashboard-challenge/assets/129113539/1f675d8b-1d56-4b86-9843-1e6ad3681f8c)
 
 # URL of deployed application
 
