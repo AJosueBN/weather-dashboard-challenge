@@ -16,4 +16,4 @@
 
 # URL of deployed application
 
-https://github.com/AJosueBN/week-6-weather-dashboard-challenge.git
+https://ajosuebn.github.io/week-6-weather-dashboard-challenge/
