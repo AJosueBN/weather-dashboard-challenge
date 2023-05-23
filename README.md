@@ -7,7 +7,7 @@
 - Added functions involving the current weather and the forecast within the next five days and done this with the elements provided in the page and use it for data to get back info when the user searches for a city with form inputs
 - Can be presented with the city name,date and an icon representation of the temperature,humidity and wind speed within the current day and the weather conditions within the next five days
 - Presented date of location of future weather conditions
-- Added to local storage so that the user can see the locations he searched up on the page recently displayed on the page
+- Added to local storage so that the user can see the locations they searched up on the page recently displayed on the page
 
 # Screenshot of deployed application
 
